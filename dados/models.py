@@ -13,13 +13,13 @@ class Dados(models.Model):
     # Experiência Profissional
     cargo = models.CharField(max_length=100)
     empresa = models.CharField(max_length=100)
-    periodo_experiencia = models.CharField(max_length=50)  # Ex: "Jan/2020 - Dez/2021"
+    periodo_experiencia = models.CharField(max_length=50)
     descricao_atividades = models.TextField()
 
     # Formação Acadêmica
     instituicao = models.CharField(max_length=100)
     curso = models.CharField(max_length=100)
-    periodo_formacao = models.CharField(max_length=50)  # Ex: "2018 - 2022"
+    periodo_formacao = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nome
