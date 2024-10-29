@@ -1,65 +1,42 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Candidato</title>
-    <link rel="stylesheet" href="{% static '/styles/index.css ' %}">
+    <title>Pegho - Encontre o trabalho dos seus sonhos!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style_index.css' %}">
 </head>
 <body>
-
-    <h1>Formulário de Cadastro de Candidato</h1>
-
-    <form action="/submit" method="POST">
-        <!-- Dados Pessoais -->
-        <h2>Dados Pessoais</h2>
-        <label for="name">Nome completo:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="dob">Data de Nascimento:</label>
-        <input type="date" id="dob" name="dob" required>
-
-        <!-- Contato -->
-        <h2>Contato</h2>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Telefone:</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <label for="address">Endereço:</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
-
-        <!-- Experiência Profissional -->
-        <h2>Experiência Profissional</h2>
-        <label for="job_title">Cargo:</label>
-        <input type="text" id="job_title" name="job_title" required>
-
-        <label for="company">Empresa:</label>
-        <input type="text" id="company" name="company" required>
-
-        <label for="job_period">Período:</label>
-        <input type="text" id="job_period" name="job_period" required>
-
-        <label for="job_description">Descrição das Atividades:</label>
-        <textarea id="job_description" name="job_description" rows="5" required></textarea>
-
-        <!-- Formação Acadêmica -->
-        <h2>Formação Acadêmica</h2>
-        <label for="institution">Instituição:</label>
-        <input type="text" id="institution" name="institution" required>
-
-        <label for="course">Curso:</label>
-        <input type="text" id="course" name="course" required>
-
-        <label for="education_period">Período:</label>
-        <input type="text" id="education_period" name="education_period" required>
-
-        <!-- Botão de Enviar -->
-        <button type="submit">Enviar Cadastro</button>
-    </form>
-
+    <header class="header">
+        <div class="logo">
+            <img src="{% static 'assets/images/pegho-logo.png' %}" alt="logo" style="width: 150px;margin-top: 20px;">
+        </div>
+        <h1 class="tagline" style="margin-right: 150px;">Encontre agora o trabalho dos seus sonhos!</h1>
+    </header>
+    <main class="container">
+        <h2>Cadastre-se agora e comece sua jornada profissional!</h2>
+        <p>Conectamos talentos e empresas que estão mudando o mundo.</p>
+        <div class="buttons">
+            <button class="button">CADASTRAR</button>
+            <button class="button">VER VAGAS</button>
+        </div>
+        <div class="titulo-empresas">
+            <h2>A escolha de confiança para várias grandes empresas</h2>
+        </div>
+        <div class="empresas">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="apple">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png" alt="amazon" style="width: 110px; margin-top: 20px;">
+            <img src="https://1000logos.net/wp-content/uploads/2021/05/Coca-Cola-logo.png" alt="coca" style="width: 110px; margin-top: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="uber" style="width: 110px; margin-top: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/IFood_logo.svg/1280px-IFood_logo.svg.png" alt="ifood" style="width: 100px; margin-top: 10px;">
+            <img src="https://logodownload.org/wp-content/uploads/2014/06/magalu-logo-0.png" alt="magalu" style="width: 110px; margin-top: 10px;">
+            <img src="https://jacto.com/assets/imgs/meta-image_c4a3a10168dd05886a9d.png" alt="jacto" style="width: 110px; margin-top: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/UOL_logo.png" alt="uol" style="width: 110px; margin-top: 10px;">
+            <img src="https://img.icons8.com/color/512/riot-games.png" alt="riot" style="width: 90px; margin-top: 10px;">
+        </div>
+    </main>
 </body>
 </html>

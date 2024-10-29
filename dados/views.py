@@ -8,9 +8,11 @@ def cadastro_dados(request):
     if request.method == 'POST':
         form = DadosForm(request.POST)
         if form.is_valid():
-            form.save()  
-            return redirect('sucesso')  
+            form.save()
+            return redirect('index')
+        else:
+            print(form.errors)  # Para debugar os erros do formulário
     else:
         form = DadosForm()
-    
-    return render(request, 'cadastro.html', {'form': form})
+    return render(request, 'formulario.html', {'form': form})
+

@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px; /* Espaço para o header fixo */
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 9%;
+    background: rgb(31,31,31);
+    background: linear-gradient(90deg, rgba(31,31,31,1) 35%, rgba(69,69,69,1) 100%);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    color: #ffffff;
+    font-size: 45px;
+    font-family: 'Jomhuria';
+}
+
+.header .tagline {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    flex: 1;
+    font-family: 'Jura';
+    margin-right: 4%;
+}
+
+/* Conteúdo Principal */
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    margin-top: 3%;
+    font-family: 'Jura';
+}
+
+.container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666666;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 24px;
+    font-family: 'Jomhuria';
+    background-color: #555555;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #444444;
+}

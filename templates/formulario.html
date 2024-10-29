@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pegho - Formulário de Recrutamento</title>
+        <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'styles/style_form.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    
+<body>
+    <header class="header">
+        <a href="/teste.html" style="text-decoration: none;">
+            <div class="logo">PEGHO</div>
+        </a>
+        <h1 class="tagline">Encontre agora o trabalho dos seus sonhos!</h1>
+    </header>
+    <main class="container">
+        <h2>Formulário de Recrutamento</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">ENVIAR CANDIDATURA</button>
+        </form>
+    </main>
+</body>
+</html>
