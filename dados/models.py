@@ -1,25 +1,21 @@
 from django.db import models
 
 class Dados(models.Model):
-    # Dados Pessoais
     nome = models.CharField(max_length=100)
     data_nascimento = models.DateField()
-
-    # Contato
-    email = models.EmailField(max_length=100, unique=True)
+    email = models.EmailField()
     telefone = models.CharField(max_length=15)
-    endereco = models.TextField()
+    endereco = models.CharField(max_length=255, null=True, blank=True)
+    
 
-    # Experiência Profissional
+class Experiencia(models.Model):
+    dados = models.ForeignKey(Dados, on_delete=models.CASCADE, related_name='experiencias')
     cargo = models.CharField(max_length=100)
     empresa = models.CharField(max_length=100)
-    periodo_experiencia = models.CharField(max_length=50)
-    descricao_atividades = models.TextField()
+    periodo_experiencia = models.CharField(max_length=100)
 
-    # Formação Acadêmica
+class Formacao(models.Model):
+    dados = models.ForeignKey(Dados, on_delete=models.CASCADE, related_name='formacoes')
     instituicao = models.CharField(max_length=100)
     curso = models.CharField(max_length=100)
-    periodo_formacao = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.nome
+    periodo_formacao = models.CharField(max_length=100)

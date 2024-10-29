@@ -1,19 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pegho - Formulário de Recrutamento</title>
-        <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'styles/style_form.css' %}">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pegho - Formulário de Recrutamento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style_form.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
+</head>
 <body>
     <header class="header">
-        <a href="/teste.html" style="text-decoration: none;">
+        <a href="/index.html" style="text-decoration: none;">
             <div class="logo">PEGHO</div>
         </a>
         <h1 class="tagline">Encontre agora o trabalho dos seus sonhos!</h1>
@@ -22,9 +22,63 @@
         <h2>Formulário de Recrutamento</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-section">
+                <h3>Dados Pessoais</h3>
+                {{ dados_form.as_p }}
+            </div>
+            <!-- Experiência Profissional -->
+            <div class="form-section" id="experiencia_profissional">
+                <h3>Experiência Profissional</h3>
+                {{ experiencia_formset.management_form }}
+                <div id="experiencia-forms">
+                    {% for form in experiencia_formset %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="button" style="border-radius: 10px; border: none;width: 20%;height: auto;" onclick="addExperience()">➕ Adicionar Experiência</button>
+            </div>
+            <!-- Formação Acadêmica -->
+            <div class="form-section" id="formacao_academica">
+                <h3>Formação Acadêmica</h3>
+                {{ formacao_formset.management_form }}
+                <div id="formacao-forms">
+                    {% for form in formacao_formset %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="button" style="border-radius: 10px; border: none;width: 20%;height: auto;" onclick="addEducation()">➕ Adicionar Formação</button>
+            </div>
             <button type="submit" class="submit-button">ENVIAR CANDIDATURA</button>
         </form>
     </main>
+    <script>
+        function addExperience() {
+            const totalForms = document.getElementById('id_experiencia-TOTAL_FORMS');
+            const experienceContainer = document.getElementById('experiencia-forms');
+            const formIdx = totalForms.value;
+            const newExperienceForm = experienceContainer.children[0].cloneNode(true);
+
+            newExperienceForm.innerHTML = newExperienceForm.innerHTML.replace(/experiencia-\d+/g, `experiencia-${formIdx}`);
+            
+            experienceContainer.appendChild(newExperienceForm);
+            totalForms.value = parseInt(formIdx) + 1;
+        }
+
+        function addEducation() {
+            const totalForms = document.getElementById('id_formacao-TOTAL_FORMS');
+            const educationContainer = document.getElementById('formacao-forms');
+            const formIdx = totalForms.value;
+            const newEducationForm = educationContainer.children[0].cloneNode(true);
+
+            newEducationForm.innerHTML = newEducationForm.innerHTML.replace(/formacao-\d+/g, `formacao-${formIdx}`);
+
+            educationContainer.appendChild(newEducationForm);
+            totalForms.value = parseInt(formIdx) + 1;
+        }
+    </script>
 </body>
 </html>

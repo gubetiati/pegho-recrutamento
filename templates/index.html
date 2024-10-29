@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/style_index.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/images/favicon.png' %}" >
 </head>
 <body>
     <header class="header">
@@ -20,7 +21,7 @@
         <h2>Cadastre-se agora e comece sua jornada profissional!</h2>
         <p>Conectamos talentos e empresas que estão mudando o mundo.</p>
         <div class="buttons">
-            <button class="button">CADASTRAR</button>
+            <button class="button" onclick="window.location.href='{% url 'formulario' %}'">CADASTRAR</button>
             <button class="button">VER VAGAS</button>
         </div>
         <div class="titulo-empresas">
